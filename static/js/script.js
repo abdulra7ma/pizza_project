@@ -8,9 +8,9 @@ window.addEventListener('scroll', function() {
     }
 });
 
-document.getElementById("add-to-cart").addEventListener("click", function() {
-    // Add code here to add the item to the cart
-});
+// document.getElementById("add-to-cart").addEventListener("click", function() {
+//     // Add code here to add the item to the cart
+// });
 
 // Get all the plus and minus buttons
 const minusButtons = document.querySelectorAll(".grid_minus");
@@ -28,35 +28,47 @@ plusButtons.forEach((button) => {
 // Function to decrease the quantity
 function decreaseQuantity(event) {
     const quantityElement = event.target.nextElementSibling;
+    const element_price = parseFloat(quantityElement.getAttribute("price"));
     let quantity = parseInt(quantityElement.innerText);
 
     if (quantity > 0) {
         quantity--;
         quantityElement.innerText = quantity;
-        updateTotal();
+        decreaseTotal(element_price);
     }
+}
+
+function formatNumber(num) {
+  if (num % 1 !== 0) {
+    return num.toFixed(2);
+  } else {
+    return num + ".00";
+  }
 }
 
 // Function to increase the quantity
 function increaseQuantity(event) {
     const quantityElement = event.target.previousElementSibling;
+    const element_price = parseFloat(quantityElement.getAttribute("price"));
     let quantity = parseInt(quantityElement.innerText);
 
     quantity++;
     quantityElement.innerText = quantity;
-    updateTotal();
+    increaseTotal(element_price);
 }
 
-function updateTotal() {
-    const quantityElements = document.querySelectorAll(".grid_number");
-    const price = 5; // Assuming a price of $10 per item
-    let total = 0;
+function increaseTotal(amount) {
+    const totalElement = document.querySelector("#total-price");
+    const match = totalElement.innerText.match(/\d+(\.\d+)?/);
+    const total = match ? parseFloat(match[0]) : 0;
+    const new_amount = total + amount;
+    totalElement.innerText = `Total: $${formatNumber(new_amount)}`;
+}
 
-    quantityElements.forEach((element) => {
-        const quantity = parseInt(element.innerText);
-        total += quantity * price;
-    });
-
-    const totalElement = document.querySelector(".total");
-    totalElement.innerText = `Total: $${total}`;
+function decreaseTotal(amount) {
+    const totalElement = document.querySelector("#total-price");
+    const match = totalElement.innerText.match(/\d+(\.\d+)?/);
+    const total = match ? parseFloat(match[0]) : 0;
+    const new_amount = total - amount;
+    totalElement.innerText = `Total: ${new_amount}`;
 }

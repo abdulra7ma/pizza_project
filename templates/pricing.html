@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block header %}
+    <a class="header_button" id="total-price">Total: $0.00</a>
+{% endblock header %}
 {% block body %}
       <div class="grid">
         <div class="container">
@@ -10,11 +13,11 @@
                         <h3>{{ pizza.name }}</h3>
                         <p>{{ pizza.description }}</p>
                         <p><strong>${{ pizza.price }}</strong></p>
-{#                        <div class="grid_counter">#}
-{#                            <span class="grid_minus"><i class="fas fa-minus"></i></span>#}
-{#                            <span class="grid_number" price="{{ pizza.price }}">0</span>#}
-{#                            <span class="grid_plus"><i class="fas fa-plus"></i></span>#}
-{#                        </div>#}
+                        <div class="grid_counter">
+                            <span class="grid_minus"><i class="fas fa-minus"></i></span>
+                            <span class="grid_number" price="{{ pizza.price }}">0</span>
+                            <span class="grid_plus"><i class="fas fa-plus"></i></span>
+                        </div>
 {#                        <button id="add-to-cart" class = "grid_add-to-cart">Add</button>#}
                     </div>
                 {% endfor %}
