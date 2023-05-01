@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "authentication",
     "pizza",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,16 @@ AUTH_USER_MODEL = "authentication.User"
 LOGOUT_REDIRECT_URL = "/"
 LOGIN_URL = "/auth/signin"
 LOGIN_REDIRECT_URL = "/"
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Pizza Project API",
+    "DESCRIPTION": "Your project description",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+}

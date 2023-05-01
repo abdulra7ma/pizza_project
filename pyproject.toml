@@ -10,6 +10,8 @@ packages = [{include = "pizza_full"}]
 python = "^3.10"
 gunicorn = "^20.1.0"
 django = "^4.2"
+djangorestframework = "^3.14.0"
+drf-spectacular = "^0.26.2"
 
 
 [build-system]
