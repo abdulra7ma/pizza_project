@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,20 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body style="background: #FFEDE1">
     <header class="header">
         <div class="container">
             <div class="header_block">
-                <a href="#" class="header_logo"><img src="/Image/Pizza.png" alt="img"></a>
+                <a href="#" class="header_logo"><img src="{% static 'Image/Pizza.png' %}" alt="img"></a>
                     <nav class="header_menu" id="menu">
                         <ul>
                             <li class="header_item"><a href="/index.html">Home</a></li>
                             <li class="header_item"><a href="/order.html">Menu</a></li>
                             <li class="header_item"><a href="#">Pricing</a></li>
-                            <li class="header_item"><a href="#">About us</a></li>
-                            <li class="header_item"><a href="#">Contact</a></li>
                         </ul>
                     </nav>
                   <div class="header_right">
@@ -32,17 +31,17 @@
         <div class="container">
             <div class="signin_block">
                 <div class="signin_text">
-                    <h1>Sign in</h1>
-                    <p>Welcome back!</p>
-                    <form>
-                        <input type="email" id="email" name="email" required placeholder="Email">
-                        <input type="password" id="password" name="password" required placeholder="Password">
-                        <input class="signin_button" type="submit" value="Sign in">
+                    <h1>Create an account</h1>
+                    <p>Lets get ordering Pizzas</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <input class="signin_button" type="submit" value="Create account">
                       </form>                      
-                      <p class="sigin_put">Don’t have an account ? <a href="/signup.html">Sign up</a></p>
+                      <p class="signin_p">Already have a account, <a href="/login.html">Log in.</a></p>
                 </div>
                 <div class="signin_img">
-                    <img src="/Image/signin.png" alt="img">
+                    <img src="{% static 'Image/signup.png' %}" alt="img">
                 </div>
             </div>
         </div>
