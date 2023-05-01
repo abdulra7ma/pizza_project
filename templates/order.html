@@ -1,150 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-<body style="background: #FFEDE1">
-    <header class="header">
-        <div class="container">
-            <div class="header_block">
-                <a href="#" class="header_logo"><img src="/Image/Pizza.png" alt="img"></a>
-                    <nav class="header_menu" id="menu">
-                        <ul>
-                            <li class="header_item"><a href="/index.html">Home</a></li>
-                            <li class="header_item"><a href="/order.html">Menu</a></li>
-                            <li class="header_item"><a href="#">Pricing</a></li>
-                            <li class="header_item"><a href="#">About us</a></li>
-                            <li class="header_item"><a href="#">Contact</a></li>
-                        </ul>
-                    </nav>
-                  <div class="header_right">
-                    <a href="/login.html" class="header_button">Sign in</a>
-                    <a href="/signup.html" class="header_button">Sign up</a>
-                  </div>
-            </div>
-        </div>
-    </header>
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+    <a class="header_button">Total: $20</a>
+{% endblock header %}
+{% block body %}
       <div class="grid">
         <div class="container">
-            <div class="grid_block">
+            {% for pizza in pizzas %}
+                <div class="grid_block">
                 <div class="grid_item">
-                    <img src="/Image/grid.png" alt="img">
+                    <img src="{% static 'Image/grid.png' %}" alt="img">
                     <h3>Pizza Margarita</h3>
                     <p>Classic Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.</p>
                     <div class="grid_counter">
-                        <button class="grid_minus">-</button>
-                        <input type="text" class="grid_counter-input" value="1">
-                        <button class="grid_plus">+</button>
-                    </div>
-                    <button id="add-to-cart" class = "grid_add-to-cart">Add</button>
-                </div>
-                <div class="grid_item">
-                    <img src="/Image/grid.png" alt="img">
-                    <h3>Pizza Margarita</h3>
-                    <p>Classic Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.</p>
-                    <div class="grid_counter">
-                        <button class="grid_minus">-</button>
-                        <input type="text" class="grid_counter-input" value="1">
-                        <button class="grid_plus">+</button>
-                    </div>
-                    <button id="add-to-cart" class = "grid_add-to-cart">Add</button>
-                </div>
-                <div class="grid_item">
-                    <img src="/Image/grid.png" alt="img">
-                    <h3>Pizza Margarita</h3>
-                    <p>Classic Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.</p>
-                    <div class="grid_counter">
-                        <button class="grid_minus">-</button>
-                        <input type="text" class="grid_counter-input" value="1">
-                        <button class="grid_plus">+</button>
-                    </div>
-                    <button id="add-to-cart" class = "grid_add-to-cart">Add</button>
-                </div>
-                <div class="grid_item">
-                    <img src="/Image/grid.png" alt="img">
-                    <h3>Pizza Margarita</h3>
-                    <p>Classic Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.</p>
-                    <div class="grid_counter">
-                        <button class="grid_minus">-</button>
-                        <input type="text" class="grid_counter-input" value="1">
-                        <button class="grid_plus">+</button>
-                    </div>
-                    <button id="add-to-cart" class = "grid_add-to-cart">Add</button>
-                </div>
-                <div class="grid_item">
-                    <img src="/Image/grid.png" alt="img">
-                    <h3>Pizza Margarita</h3>
-                    <p>Classic Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.</p>
-                    <div class="grid_counter">
-                        <button class="grid_minus">-</button>
-                        <input type="text" class="grid_counter-input" value="1">
-                        <button class="grid_plus">+</button>
-                    </div>
-                    <button id="add-to-cart" class = "grid_add-to-cart">Add</button>
-                </div>
-                <div class="grid_item">
-                    <img src="/Image/grid.png" alt="img">
-                    <h3>Pizza Margarita</h3>
-                    <p>Classic Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.</p>
-                    <div class="grid_counter">
-                        <button class="grid_minus">-</button>
-                        <input type="text" class="grid_counter-input" value="1">
-                        <button class="grid_plus">+</button>
-                    </div>
-                    <button id="add-to-cart" class = "grid_add-to-cart">Add</button>
-                </div>
-                <div class="grid_item">
-                    <img src="/Image/grid.png" alt="img">
-                    <h3>Pizza Margarita</h3>
-                    <p>Classic Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.</p>
-                    <div class="grid_counter">
-                        <button class="grid_minus">-</button>
-                        <input type="text" class="grid_counter-input" value="1">
-                        <button class="grid_plus">+</button>
-                    </div>
-                    <button id="add-to-cart" class = "grid_add-to-cart">Add</button>
-                </div>
-                <div class="grid_item">
-                    <img src="/Image/grid.png" alt="img">
-                    <h3>Pizza Margarita</h3>
-                    <p>Classic Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.</p>
-                    <div class="grid_counter">
-                        <button class="grid_minus">-</button>
-                        <input type="text" class="grid_counter-input" value="1">
-                        <button class="grid_plus">+</button>
-                    </div>
-                    <button id="add-to-cart" class = "grid_add-to-cart">Add</button>
-                </div>
-                <div class="grid_item">
-                    <img src="/Image/grid.png" alt="img">
-                    <h3>Pizza Margarita</h3>
-                    <p>Classic Italian pizza with tomato sauce, mozzarella cheese, and fresh basil.</p>
-                    <div class="grid_counter">
-                        <button class="grid_minus">-</button>
-                        <input type="text" class="grid_counter-input" value="1">
-                        <button class="grid_plus">+</button>
+                        <span class="grid_minus"><i class="fas fa-minus"></i></span>
+                        <span class="grid_number">1</span>
+                        <span class="grid_plus"><i class="fas fa-plus"></i></span>
                     </div>
                     <button id="add-to-cart" class = "grid_add-to-cart">Add</button>
                 </div>
             </div>
+            {% endblock pizza %}
         </div>
       </div>
-      <div class="footer">
-        <div class="container">
-            <div class="footer_block">
-                <a href="#"><img class="footer_img" src="/Image/facebook 1.png" alt="img"></a>
-                <a href="#"><img class="footer_img" src="/Image/insta.png" alt="img"></a>               
-                <a href="#"><img class="footer_img" src="/Image/twitter 1.png" alt="img"></a>
-            </div>
-            <div class="footer_text">
-                <p>You can reach us at any of these platform</p>
-            </div>
-        </div>
-    </div>
-    <script src="/script.js"></script>
-</body>
-</html>
+{#    <div class="price">#}
+{#      <div class="container">#}
+{#          <div class="price_block">#}
+{#              <h2>Your total is </h2>#}
+{#              <div class="total">#}
+{#                  Total: $0#}
+{#              </div>#}
+{#          </div>#}
+{#      </div>#}
+{#    </div>#}
+{% endblock body %}

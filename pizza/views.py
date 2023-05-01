@@ -1,10 +1,14 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 
 from pizza.models import Pizza
 
 
-class PizzaListView(ListView):
+class MainView(TemplateView):
     template_name = "index.html"
+
+
+class MenuView(ListView):
+    template_name = "order.html"
     context_object_name = "pizzas"
     queryset = Pizza.objects.all()
-    paginate_by = 4
+
