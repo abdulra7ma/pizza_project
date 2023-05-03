@@ -90,6 +90,7 @@ The project documentation is available in the `docs` directory. It includes:
 
 * API documentation
   * Swagger Docs
+    * access the docs via: http://localhost:8000/docs
     * ![Swagger Docs](./docs/images/swagger.png)
 
 
